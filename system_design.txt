@@ -1,0 +1,32 @@
+
+
+
+    Reliability
+    Scalabilioty
+    Describe load -- can be calculated as load parameters which can be 
+            1. requests per second to a web server, 
+            2. the ratio of reads to writes in a database,
+            3. the number of simultaneously active users in a chat room,
+            4. the hit rate on a cache, 
+            5. or something else.
+    Describe performance -- How the system performs under changing load. it is often expressed in percentiles.
+                            This performance percentile are often used in service level objectives (SLOs) and service level agreeements (SLAs)
+            1.  latency   - the time a request waits to be handled
+            2.  response time - The time the client sees the output of an action
+            2.  service time  - all the time taken to handle a request, it includes latency time, network time e.tc
+            3.  tail latency amplification ->  a small percentage of backend calls that results in slowing down the system when the user have to make multiple subsequent calls
+            4.  head-of-line-blocking -> a small number of slow requests that holds up subsequent request
+            5.  scaling up (vertical scaling) -> moving to a more powerful machine
+            6.  scaling out (horizontal scaling) -> distributing load across small multiple instances.
+
+        - distributing  stateless services across multiple mahcine is easy while distributing stateful service to distributed systems is more complex.
+        - The architecture of a system that operates at high scale is often specific to the aplication.
+
+        - An architecture that scales well for a particular application is built around assump‐ tions of which operations will be common and which will be rare—the load parameters.
+    
+    Maintainability -- Design software system that is easy to maintain. Avoid using legacy technology.
+                       Maintainability has 3 design principles
+        - Operability - make easy for operations team to keep the system working
+        - Simplicity  - make it easy for engineers to understrand the system
+        - Evolvability - make it easy for engineers to make changes to the system in the future
+

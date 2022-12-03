@@ -1,0 +1,64 @@
+data base querying languaguages
+
+    - SQL - declarative DB programing lang for relational DBs
+    - NOSQL - imparative DB programing lang for document based DBs
+
+Data models
+
+    Your data models of choice is a fuction of relationship complexities between your user data.
+
+    The type of data models you choose determines the DB to choose
+
+    1. NOSQL DBs model --> when there are little to no relationship between data. uses path to navigate to resources
+
+    2. SQL DBS model --> when there are relationship between user data. uses FK to navigate.
+
+    3. Graph DBS model --> when there are complex relationship between user data.
+
+    Note: A relational db is used here as well, the difference is how  it is setup
+
+    Example:
+
+        CREATE TABLE vertices (
+            vertex_id integerPRIMARYKEY,
+            properties json
+        );
+        CREATE TABLE edges (
+            edge_id integer PRIMARY KEY,
+            tail_vertex integer REFERENCES vertices (vertex_id), head_vertex integer REFERENCES vertices (vertex_id), label text,
+            properties json
+        );
+        CREATE INDEX edges_tails ON edges (tail_vertex);
+        CREATE INDEX edges_heads ON edges (head_vertex);
+
+
+
+    A graph consists of two kinds of objects: vertices (also known as nodes or entities) and edges (also known as relationships or arcs). Many kinds of data can be modeled as a graph. Typical 
+    
+    examples include:
+
+    Social graphs
+    Vertices are people, and edges indicate which people know each other.
+    The web graph
+    Vertices are web pages, and edges indicate HTML links to other pages.
+    Road or rail networks
+    Vertices are junctions, and edges represent the roads or railway lines between them.
+
+    Well-known algorithms can operate on these graphs: for example, car navigation sys‐ tems search for the shortest path between two points in a road network, and PageRank can be used on the web graph to determine the popularity of a web page and thus its ranking in search results.
+
+    Types of graph model:
+
+    1. property graph model (implemented by Neo4j, Titan, and InfiniteGraph)
+
+    The Cypher Query Language
+    Cypher is a declarative query language for property graphs, created for the Neo4j graph database
+
+    2. triple-store model (implemented by Datomic, AllegroGraph, and others)
+
+    
+
+
+MapReduce Querying
+MapReduce is a programming model for processing large amounts of data in bulk across many machines, popularized by Google.
+
+ 
